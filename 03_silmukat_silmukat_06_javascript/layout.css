@@ -1,0 +1,12 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.6rem;
+  margin: 1rem;
+}
+h1,
+p {
+  margin-block-end: 1rem;
+}

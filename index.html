@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 03 Osa</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./layout.css" />
+  </head>
+  <body>
+    <h1>Hei, JavaScript!</h1>
+    <p>Kirjoitan sinulle nyt kolmatta kertaa.</p>
+    <!-- JavaScript lisätään bodyn loppuun, jotta se suoritaaan vasta kun koko DOM-rakenne on valmis-->
+    <script>
+      // 01 ehtolauseet
+      console.log("--01 ehtolauseet--");
+
+      // ehtolauseet_01
+
+      /*
+                              Toteuta funktio canVote siten, että se palauttaa arvon true aina kun ikä on 18 tai enemmän ja false muissa tapauksissa.
+                              function canVote(age) {
+                              }
+                              Esimerkkikäyttö - älä muuta
+                              console.log(canVote(25)); // true
+                              console.log(canVote(18)); // true
+                              console.log(canVote(10)); // false
+                              Treenaa: Keksi itse samanlainen funktio eri nimellä
+                              Kutsu tekemääsi funktiota */
+
+      // Toteutettu canVote-funktio
+      function canVote(age) {
+        return age >= 18;
+      }
+
+      // Esimerkkikäyttö - älä muuta
+      console.log(canVote(25)); // true
+      console.log(canVote(18)); // true
+      console.log(canVote(10)); // false
+
+      // Treenaa: Keksi samanlainen funktio eri nimellä
+      function isAdult(age) {
+        return age >= 17;
+      }
+
+      // Kutsu tekemääsi funktiota
+      console.log(isAdult(20)); // true
+      console.log(isAdult(16)); // false
+      console.log(isAdult(18)); // true
+
+      // ehtolauseet_02
+
+      /* Tätä ohjelmaa varten tarvitaan verkkosivua, eli se ei toimi pelkästään konsolissa.
+                              Joten tee ensin html sivu ja linkkaa tämä tiedosto siihen. Prompt-ikkuna aukeaa sivulle, testaa Live serverin avulla.
+                              Luo ohjelma getTemperature, joka kysyy käyttäjältä lämpötilaa Celsius-asteina ja sitten tulostaa, pitäisikö heidän pukea takki päälle (jos lämpötila on alle 15°C) vai ei.
+                              function getTemperature(temp) {}
+                              let esimerkki = prompt("Mikä on nykyinen lämpötila?");
+                              let numero = Number(esimerkki);
+                              getTemperature(numero);
+                              Treenaa: Keksi itse samanlainen funktio eri nimellä
+                              Kutsu tekemääsi funktiota */
+
+      // Luo ohjelma getTemperature
+      function getTemperature(temp) {
+        if (temp < 15) {
+          alert("On viileää, kannattaa pukea takki päälle!");
+        } else {
+          alert("Ei tarvitse takkia, sää on lämmin.");
+        }
+      }
+
+      // Kysytään käyttäjältä lämpötila
+      let esimerkki = prompt("Mikä on nykyinen lämpötila Celsius-asteina?");
+
+      // Muutetaan saatu arvo numeroksi
+      let numero = Number(esimerkki);
+
+      // Kutsutaan getTemperature-funktiota
+      getTemperature(numero);
+
+      // Treenaa: Keksi itse samanlainen funktio eri nimellä
+      function checkWeather(temp) {
+        if (temp < 15) {
+          alert("Sää on viileä, pukeudu lämpimästi.");
+        } else {
+          alert("Sää on mukava, nauti siitä!");
+        }
+      }
+
+      // Kutsutaan vaihtoehtoista funktiota
+      checkWeather(numero);
+
+      // ehtolauseet_03
+      // ehtolauseet_04
+
+      // ehtolauseet_05
+
+      /*
+                              Täydennä funktio evenOrOdd siten, että se palauttaa merkkijonon "even", kun se saa parametriksi parillisen luvun, ja muuten "odd".
+                              function evenOrOdd(number) {}
+                              // Esimerkkikäyttö - älä muokkaa
+                              console.log(evenOrOdd(25)); // "odd"
+                              console.log(evenOrOdd(18)); // "even"
+                              console.log(evenOrOdd(-17)); // "odd"
+                              // Treenaa: Keksi itse samanlainen funktio eri nimellä
+                              // Kutsu tekemääsi funktiota */
+
+      // Täydennä funktio evenOrOdd siten, että se palauttaa "even", kun se saa parametriksi parillisen luvun, ja muuten "odd".
+
+      function evenOrOdd(number) {
+        if (number % 2 === 0) {
+          return "even";
+        } else {
+          return "odd";
+        }
+      }
+
+      // Esimerkkikäyttö - älä muokkaa
+      console.log(evenOrOdd(25)); // "odd"
+      console.log(evenOrOdd(18)); // "even"
+      console.log(evenOrOdd(-17)); // "odd"
+
+      // Treenaa: Keksi itse samanlainen funktio eri nimellä
+      function determineParity(num) {
+        return num % 2 === 0 ? "even" : "odd";
+      }
+      // "? :" Это сокращённая форма записи "if-else".
+
+      // Kutsu tekemääsi funktiota
+      console.log(determineParity(42)); // "even"
+      console.log(determineParity(7)); // "odd"
+      console.log(determineParity(0)); // "even"
+
+      // ehtolauseet_06
+
+      /* Kehitä funktio nimeltä greaterNum, joka:
+                              - Hyväksyy kaksi argumenttia, jotka molemmat ovat numeroita.
+                              - Palauttaa näistä kahdesta suuremman numeron.
+                              function greaterNum() {}
+                              // Esimerkkikäyttö - älä muokkaa
+                              console.log(greaterNum(5, 10));
+                              console.log(greaterNum(2, 1));
+                              console.log(greaterNum(4, 25)); */
+
+      function greaterNum(num1, num2) {
+        return num1 > num2 ? num1 : num2;
+      }
+
+      function greaterNum(num1, num2) {
+        if (num1 > num2) {
+          return num1;
+        } else {
+          return num2;
+        }
+      }
+
+      // Esimerkkikäyttö - älä muokkaa
+      console.log(greaterNum(5, 10)); // 10
+      console.log(greaterNum(2, 1)); // 2
+      console.log(greaterNum(4, 25)); // 25
+
+      // ehtolauseet_07
+
+      /* Kehitä funktio nimeltä assignGrade, joka:
+                              Hyväksyy yhden argumentin, numeerisen pistemäärän.
+                              Palauttaa kirjainarvosanan pistemäärän perusteella seuraavasti:
+                              - 'A' pistemäärille 90 tai enemmän.
+                              - 'B' pistemäärille 80-89.
+                              - 'C' pistemäärille 70-79.
+                              - 'D' pistemäärille 60-69.
+                            - 'F' pistemäärille alle 60.
+                              Esimerkkikäyttö - älä muokkaa
+                              console.log("Sinä sait " + assignGrade(95)); // Sinä sait A
+                              console.log("Sinä sait " + assignGrade(81)); // Sinä sait B
+                              console.log("Sinä sait " + assignGrade(72)); // Sinä sait C
+                              console.log("Sinä sait " + assignGrade(64)); // Sinä sait D
+                              console.log("Sinä sait " + assignGrade(42)); // Sinä sait F
+                              Treenaa: Keksi itse samanlainen funktio eri nimellä. Pisterajoja voi olla vähemmän kuin yllä.
+                              Kutsu tekemääsi funktiota */
+
+      // Funktio assignGrade
+      function assignGrade(score) {
+        if (score >= 90) {
+          return "A";
+        } else if (score >= 80) {
+          return "B";
+        } else if (score >= 70) {
+          return "C";
+        } else if (score >= 60) {
+          return "D";
+        } else {
+          return "F";
+        }
+      }
+
+      // Esimerkkikäyttö - älä muuta
+      console.log("Sinä sait " + assignGrade(95)); // Sinä sait A
+      console.log("Sinä sait " + assignGrade(81)); // Sinä sait B
+      console.log("Sinä sait " + assignGrade(72)); // Sinä sait C
+      console.log("Sinä sait " + assignGrade(64)); // Sinä sait D
+      console.log("Sinä sait " + assignGrade(42)); // Sinä sait F
+
+      // Treenaa: Funktio vähemmillä pisterajoilla
+      function simpleGrade(score) {
+        if (score >= 75) {
+          return "Hyväksytty";
+        } else {
+          return "Hylätty";
+        }
+      }
+
+      // Kutsu itse tehtyä funktiota
+      console.log("Arvosanasi on: " + simpleGrade(85)); // Hyväksytty
+      console.log("Arvosanasi on: " + simpleGrade(60)); // Hyväksytty
+      console.log("Arvosanasi on: " + simpleGrade(50)); // Hylätty
+
+      // ehtolauseet_08
+
+      /*
+                              Kirjoita funktio nimeltä pluralize, joka:
+                              Hyväksyy kaksi argumenttia: substantiivin ja numeron.
+                              Palauttaa merkkijonon, joka yhdistää numeron ja sopivasti taipuvan muodon substantiivista, kuten '5 kissaa' tai '1 koira'.
+                              function pluralize(substantiivi, määrä) {
+                              }
+                              Esimerkkikäyttö - älä muokkaa
+                              console.log('Minulla on ' + pluralize('kala', 0));
+                              console.log('Minulla on ' + pluralize('koira', 1));
+                              console.log('Minulla on ' + pluralize('papukaija', 7));
+                              Treenaa: Keksi itse samanlainen funktio eri nimellä.
+                              Kutsu tekemääsi funktiota */
+
+      function pluralize(substantiivi, määrä) {
+        if (määrä === 1) {
+          return `${määrä} ${substantiivi}`; // Yksikössä partitiivia ei tarvita
+        }
+
+        let vartalo = substantiivi; // Sanan perusmuoto
+        let pääte = ""; // Partitiivin pääte
+
+        // Säännöt eri päätteille
+        if (substantiivi.endsWith("nen")) {
+          // nen-loppuiset sanat
+          vartalo = substantiivi.slice(0, -3);
+          pääte = /[aou]/.test(vartalo) ? "sta" : "stä";
+        } else if (substantiivi.endsWith("si")) {
+          // si-loppuiset sanat
+          vartalo = substantiivi.slice(0, -2);
+          pääte = /[aou]/.test(vartalo) ? "tta" : "ttä";
+        } else if (
+          substantiivi.endsWith("e") &&
+          !/[aeiouyäö]e$/.test(substantiivi)
+        ) {
+          // e-loppuiset sanat
+          vartalo = substantiivi;
+          pääte = /[aou]/.test(vartalo) ? "tta" : "ttä";
+        } else if (
+          /[aeiouyäö]{2}$/.test(substantiivi) &&
+          !/(ia|ea|eä)$/.test(substantiivi)
+        ) {
+          // Kaksi vokaalia lopussa (не "ia", "ea", "eä")
+          pääte = /[aou]/.test(substantiivi) ? "ta" : "tä";
+        } else if (
+          /[aouyäö]$/.test(substantiivi) &&
+          !/[e]$/.test(substantiivi)
+        ) {
+          // Yksi vokaali lopussa
+          pääte = /[aou]/.test(substantiivi) ? "a" : "ä";
+        } else if (/[^aeiouyäö]$/.test(substantiivi)) {
+          // Sanojen loppuu konsonanttiin
+          pääte = /[aou]/.test(substantiivi) ? "ta" : "tä";
+        }
+        return `${määrä} ${vartalo}${pääte}`;
+      }
+
+      // Esimerkkikäyttö - älä muokkaa
+      console.log("Minulla on " + pluralize("kala", 0)); // Minulla on 0 kalaa
+      console.log("Minulla on " + pluralize("koira", 1)); // Minulla on 1 koira
+      console.log("Minulla on " + pluralize("papukaija", 7)); // Minulla on 7 papukaijaa
+
+      // Esimerkkikäyttö
+      console.log(pluralize("talo", 1)); // 1 talo
+      console.log(pluralize("talo", 3)); // 3 taloa
+      console.log(pluralize("asia", 0)); // 0 asiaa
+      console.log(pluralize("omena", 2)); // 2 omenaa
+      console.log(pluralize("tie", 4)); // 4 tietä
+      console.log(pluralize("vuosi", 12)); // 12 vuotta
+      console.log(pluralize("puhelin", 5)); // 5 puhelinta
+      console.log(pluralize("avain", 7)); // 7 avainta
+      console.log(pluralize("puu", 10)); // 10 puuta
+      console.log(pluralize("suomalainen", 1)); // 1 suomalainen
+      console.log(pluralize("suomalainen", 9)); // 9 suomalaista
+      console.log(pluralize("huone", 3)); // 3 huonetta
+      console.log(pluralize("perhe", 2)); // 2 perhettä
+      console.log(pluralize("kone", 4)); // 4 konetta
+      console.log(pluralize("ihminen", 3)); // 3 ihmistä
+      console.log(pluralize("tie", 6)); // 6 tietä
+      console.log(pluralize("mies", 2)); // 2 miestä
+      console.log(pluralize("vene", 3)); // 3 venettä
+      console.log(pluralize("tytär", 2)); // 2 tytärtä
+      console.log(pluralize("lounas", 2)); // 2 lounasta
+      console.log(pluralize("vastaus", 5)); // 5 vastausta
+      console.log(pluralize("olut", 3)); // 3 olutta
+      console.log(pluralize("työtön", 8)); // 8 työtöntä
+      console.log(pluralize("manner", 6)); // 6  mannerta
+
+      // Treenaa: Funktio eri nimellä
+      function formatCount(substantiivi, määrä) {
+        const epäsäännöllisetMonikot = {
+          man: "men",
+          woman: "women",
+          child: "children",
+          foot: "feet",
+          tooth: "teeth",
+          goose: "geese",
+          mouse: "mice",
+          sheep: "sheep",
+          fish: "fish",
+          fruit: "fruit",
+          aircraft: "aircraft",
+          series: "series",
+          ox: "oxen",
+          index: "indices", // tai "indexes"
+        };
+        if (määrä === 1) {
+          return `${määrä} ${substantiivi}`; // Yksikössä
+        }
+        // Tarkistetaan poikkeukset
+        if (epäsäännöllisetMonikot[substantiivi]) {
+          return `${määrä} ${epäsäännöllisetMonikot[substantiivi]}`;
+        }
+        // Käsitellään -ch, -x, -s, -sh pääte
+        if (/(ch|x|s|sh)$/.test(substantiivi)) {
+          return `${määrä} ${substantiivi}es`;
+        }
+        // Käsitellään sanan lopussa oleva konsonantti + y
+        if (/[^aeiou]y$/.test(substantiivi)) {
+          return `${määrä} ${substantiivi.slice(0, -1)}ies`;
+        }
+        // Käsitellään sanan lopussa -f tai -fe
+        if (/f$|fe$/.test(substantiivi)) {
+          return `${määrä} ${substantiivi.replace(/f$|fe$/, "ves")}`;
+        }
+        // Tavalliset tapaukset, joissa lisätään -s
+        return `${määrä} ${substantiivi}s`;
+      }
+
+      // Kutsu itse tehtyä funktiota
+      console.log("I have " + formatCount("cat", 3)); // I have 3 cats
+      console.log("I have " + formatCount("dog", 1)); // I have 1 dog
+      console.log("I have " + formatCount("fish", 0)); // I have 0 fish
+      console.log("I have " + formatCount("cup", 1)); // I have 1 cup
+      console.log(formatCount("cup", 2)); // 2 cups
+      console.log(formatCount("bench", 3)); // 3 benches
+      console.log(formatCount("fox", 2)); // 2 foxes
+      console.log(formatCount("baby", 10)); // 10 babies
+      console.log(formatCount("hobby", 5)); // 5 hobbies
+      console.log(formatCount("copy", 4)); // 4 copies
+      console.log(formatCount("man", 2)); // 2 men
+      console.log(formatCount("mouse", 4)); // 4 mice
+      console.log(formatCount("fish", 6)); // 6 fish
+      console.log(formatCount("city", 8)); // 8 cities
+      console.log(formatCount("wife", 3)); // 3 wives
+      console.log(formatCount("life", 3)); // 3 lives
+
+      // ehtolauseet_09
+
+      /* Luo Magic 8-Ball -ohjelma, joka matkii klassista kohtalon ennustamisen lelua. Käyttäjä syöttää kyllä-tai-ei -kysymyksen, ja ohjelma
+       * antaa satunnaisen vastauksen 8-pallosta. Toteuta ohjelma käyttämällä ehtolauseita valitsemaan ja näyttämään yksi useista ennalta määritellyistä vastauksista. */
+
+      // Magic 8-Ball -ohjelma
+      function magic8Ball(kysymys) {
+        // Varmistetaan, että käyttäjä on syöttänyt kysymyksen
+        if (!kysymys || !kysymys.trim()) {
+          return "Et kysynyt mitään. Kysy jotain kyllä-tai-ei kysymystä!";
+        }
+        // Ennalta määritellyt vastaukset
+        const vastaukset = [
+          "Ehdottomasti kyllä!",
+          "Ei ole varmaa.",
+          "Kyllä, mutta se ei ole taattua.",
+          "En osaa sanoa, kokeile myöhemmin.",
+          "Vastaus on ei.",
+          "Kyllä, se näyttää lupaavalta.",
+          "Ehdottomasti ei.",
+          "Keskiverto vastaus: kyllä.",
+        ];
+        // Satunnainen vastaus valitaan
+        const satunnainenVastaus =
+          vastaukset[Math.floor(Math.random() * vastaukset.length)];
+        return satunnainenVastaus;
+      }
+      // Tervetuloa viesti
+      alert("Hei! Voit esittää kysymyksen, ja Magic 8-Ball vastaa sinulle.");
+      // Esimerkki kysymys
+      let kysymys = prompt(
+        "Esitä kysymys, johon voi vastata 'kyllä' tai 'ei'."
+      );
+      alert(magic8Ball(kysymys));
+
+      // 02 esimerkkivastaukset
+      console.log("--02 esimerkkivastaukset--");
+
+      // silmukat_01
+
+      /* Tee ohjelma, joka tulostaa kaikki parittomat numerot 1 ja 100 välillä. Eli 1, 3, 5, 7, 9, 11 jne.
+      // for-silmukalla
+      for (let i = 1; i < 100; i+=2) {
+      console.log(i);
+      }
+      // while-silmukalla
+      let j = 1
+      while (j < 100){
+      console.log(j);
+      j +=2
+      } 
+      // Jos halutaan tieto samalle riville
+      let luvut = "";
+      for (let k=1; k<100; k+=2){
+      luvut += k + ", "
+      }
+      console.log(luvut) */
+
+      // for-silmukalla
+      for (let i = 1; i < 100; i += 2) {
+        console.log(i);
+      }
+      // while-silmukalla
+      let j = 1;
+      while (j < 100) {
+        console.log(j);
+        j += 2;
+      }
+      // Jos halutaan tieto samalle riville
+      let luvut = "";
+      for (let k = 1; k < 100; k += 2) {
+        luvut += k;
+        if (k + 2 < 100) {
+          luvut += ", ";
+        }
+      }
+      console.log(luvut);
+
+      // silmukat_03
+
+      /* toisessa tiedostossa 03_esimerkkivastaukset_silmukat_03_javascript */
+
+      // silmukat_04
+
+      /* toisessa tiedostossa 03_esimerkkivastaukset_silmukat_04_javascript */
+
+      // silmukat_06
+
+      /* toisessa tiedostossa 03_esimerkkivastaukset_silmukat_06_javascript */
+
+      // silmukat_07
+
+      /* toisessa tiedostossa 03_esimerkkivastaukset_silmukat_07_javascript */
+
+      // 03 silmukat
+      console.log("--03 silmukat--");
+
+      // silmukat_01
+
+      //Tee ohjelma, joka tulostaa kaikki parittomat numerot 1 ja 100 välillä. Eli 1, 3, 5, 7, 9, 11 jne.
+      for (let i = 1; i <= 100; i += 2) {
+        console.log(i);
+      }
+
+      // silmukat_02
+
+      // Tee ohjelma, joka tulostaa kaikki parilliset kokonaisluvut 1 ja 99 välillä, esittäen ne seuraavalla tavalla
+      // 2, 98, 4, 96, 6, 94 ja niin edelleen. Tulosta luvut samalle riville.
+      // Saat itse valita käytkö luvut läpi kaksi kertaa vai lopetatko lukuun 50.
+
+      let tuloste = ""; // Muuttuja, johon kerätään kaikki tulostettavat luvut
+
+      for (let i = 2, j = 98; i <= 50; i += 2, j -= 2) {
+        tuloste += `${i}, ${j}`;
+        if (i + 2 <= 50) {
+          tuloste += ", "; // Lisätään pilkku, jos ei ole viimeinen pari
+        }
+      }
+      console.log(tuloste);
+
+      // silmukat_03
+
+      /* 03_silmukat_silmukat_03_javascript */
+
+      // silmukat_04
+
+      /* 03_silmukat_silmukat_04_javascript */
+
+      // silmukat_05
+
+      /* 03_silmukat_silmukat_05_javascript */
+
+      // silmukat_06
+
+      /* 03_silmukat_silmukat_06_javascript */
+
+      // silmukat_07
+
+      /* 03_silmukat_silmukat_07_javascript */
+
+      // silmukat_08
+
+      /* 03_silmukat_silmukat_08_javascript */
+    </script>
+  </body>
+</html>
